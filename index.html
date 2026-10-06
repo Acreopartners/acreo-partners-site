@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acreo Partners — Independent advisory (mock)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#18242C;
+  --petrol:#243F4A;
+  --verdigris:#7FA89A;
+  --verdigris-deep:#4E7C6E;
+  --stone:#ECEEEA;
+  --paper:#FAFAF8;
+  --ink:#1D2328;
+  --muted:#5A656C;
+  --rule:#D3D8D3;
+  --on-dark:#E9EEEC;
+  --on-dark-muted:#A9B8B4;
+  --serif:"Newsreader", Georgia, serif;
+  --sans:"Hanken Grotesk", system-ui, sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:hidden}
+body{margin:0;max-width:100%;overflow-x:clip;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--verdigris);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+
+[class$="-grid"]>*,.lux-intro>*,.structures>*,.mv>*,.foot-top>*,.svc>*,.model>*,.person>*,.row>*{min-width:0}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{height:40px;width:auto}
+.brand-name{font-family:var(--serif);font-size:23px;letter-spacing:.01em;color:var(--ink)}
+.nav{display:flex;gap:30px;font-size:15px}
+.nav a{text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--verdigris-deep)}
+.menu-btn{display:none;background:none;border:1px solid var(--rule);color:var(--ink);font:inherit;font-size:14px;padding:6px 12px;border-radius:2px}
+
+/* Buttons */
+.btn{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:500;text-decoration:none;padding:14px 26px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--verdigris);color:var(--slate)}
+.btn-primary:hover{background:#98BCAF}
+.btn-ghost{background:transparent;border-color:rgba(233,238,236,.35);color:var(--on-dark)}
+.btn-ghost:hover{border-color:var(--on-dark)}
+.btn-dark{background:var(--slate);color:var(--on-dark)}
+.btn-dark:hover{background:var(--petrol)}
+.text-link{color:var(--verdigris-deep);font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.dark .text-link{color:var(--verdigris)}
+
+/* Sections */
+.section{padding:112px 0}
+.dark{background:var(--slate);color:var(--on-dark)}
+.stone{background:var(--stone)}
+.section-head{max-width:640px;margin-bottom:56px}
+.section-head h2{font-size:clamp(34px,4vw,48px);line-height:1.1}
+.section-head p{margin-top:18px;color:var(--muted);font-size:18px}
+.dark .section-head p{color:var(--on-dark-muted)}
+
+/* Hero */
+.hero{padding:96px 0 0;background:linear-gradient(165deg,rgba(24,36,44,.94),rgba(24,36,44,.82) 45%,rgba(24,36,44,.96)),url(images/hero-city-gold.jpg) center 30%/cover no-repeat}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(42px,5.4vw,74px);line-height:1.03;font-weight:300}
+.hero .lede{margin-top:28px;max-width:34em;font-size:19px;color:var(--on-dark-muted)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+.truss-fig{width:100%}
+.truss-fig .draw{fill:none;stroke:var(--on-dark-muted);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.4,.1,.2,1) forwards;animation-delay:var(--d,0s)}
+.truss-fig .chord{stroke:var(--on-dark);stroke-width:1.4}
+.truss-fig .node{fill:var(--slate);stroke:var(--on-dark);stroke-width:1;opacity:0;animation:fade .6s forwards;animation-delay:var(--d,1.4s)}
+.truss-fig .anchor{fill:var(--verdigris);stroke:none}
+.truss-fig text{font-family:var(--sans);font-size:14px;fill:var(--on-dark-muted);opacity:0;animation:fade .8s forwards;animation-delay:2s}
+.truss-fig .horizon{stroke:rgba(233,238,236,.14);stroke-width:1}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+.focus{display:grid;grid-template-columns:repeat(4,1fr);margin-top:88px;border-top:1px solid rgba(233,238,236,.16)}
+.focus-item{padding:36px 28px 56px 0;margin-right:28px;border-top:2px solid transparent;margin-top:-1px}
+.focus-item h3{font-size:23px;line-height:1.2;margin-bottom:14px}
+.focus-item p{font-size:15px;color:var(--on-dark-muted)}
+.focus-item.lux{border-top-color:var(--verdigris)}
+.focus-item .text-link{display:inline-block;margin-top:18px;font-size:15px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.about-copy .lead{font-family:var(--serif);font-size:26px;line-height:1.35;color:var(--ink);margin-bottom:28px}
+.about-copy p{color:#394148;max-width:36em}
+.photo-slot{margin-top:40px;background:var(--petrol);aspect-ratio:4/5;position:relative;overflow:hidden}
+.photo-slot figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;font-size:13px;color:var(--on-dark-muted);background:linear-gradient(transparent,rgba(24,36,44,.85))}
+.banner-photo{margin:0 0 48px;aspect-ratio:21/8;position:relative;overflow:hidden;background:var(--petrol)}
+.banner-photo img{width:100%;height:100%;object-fit:cover}
+.banner-photo figcaption{position:absolute;left:0;bottom:0;padding:12px 18px;font-size:13px;color:var(--on-dark-muted);background:linear-gradient(transparent,rgba(24,36,44,.85))}
+.closing{margin-top:96px;padding-top:40px;border-top:1px solid var(--rule);font-family:var(--serif);font-size:clamp(30px,3.6vw,46px);line-height:1.15;font-weight:300}
+
+/* Services */
+.svc-list{border-top:1px solid var(--rule)}
+.svc{display:grid;grid-template-columns:.8fr 1.4fr;gap:48px;padding:40px 0;border-bottom:1px solid var(--rule);position:relative}
+.svc h3{font-size:27px;line-height:1.2}
+.svc p{color:#394148;max-width:40em}
+.svc.lux::before{content:"";position:absolute;left:-32px;top:40px;bottom:40px;width:3px;background:var(--verdigris)}
+.svc .text-link{display:inline-block;margin-top:14px;font-size:15px}
+
+/* Mission */
+#mission{background:linear-gradient(165deg,rgba(24,36,44,.93),rgba(24,36,44,.88) 55%,rgba(24,36,44,.97)),url(images/mission-millennium-bridge.jpg) center 35%/cover no-repeat}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-bottom:80px;border-bottom:1px solid rgba(233,238,236,.16)}
+.mv h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--verdigris);margin-bottom:18px;letter-spacing:.02em}
+.mv p{font-family:var(--serif);font-size:clamp(22px,2.3vw,29px);line-height:1.35;font-weight:300}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px}
+.values h4{font-size:24px;margin-bottom:12px}
+.values p{font-size:15px;color:var(--on-dark-muted)}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.person{display:grid;grid-template-columns:1fr;gap:24px;align-items:start;align-content:start}
+.portrait{aspect-ratio:4/5;background:var(--stone);display:flex;align-items:flex-end;padding:16px;font-family:var(--serif);font-size:44px;color:var(--petrol);border-bottom:3px solid var(--petrol)}
+.portrait.has-photo{padding:0;overflow:hidden}
+.portrait.has-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.person h3{font-size:30px;line-height:1.1}
+.person .role{font-size:15px;color:var(--verdigris-deep);font-weight:500;margin:6px 0 18px}
+.person p{font-size:15.5px;color:#394148}
+.person .text-link{display:inline-block;margin-top:14px;font-size:15px}
+.model{margin-top:88px;display:grid;grid-template-columns:.8fr 1.4fr;gap:48px;padding-top:40px;border-top:1px solid var(--rule)}
+.model h3{font-size:27px}
+.model ul{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.model li{font-size:14px;padding:6px 14px;border:1px solid var(--rule);border-radius:40px;color:var(--muted)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.contact-lines{list-style:none;padding:0;margin:32px 0 0}
+.contact-lines li{padding:16px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:16px;font-size:16px}
+.contact-lines span{color:var(--muted)}
+.contact-lines a{text-decoration:none;font-weight:500}
+.contact-lines a:hover{text-decoration:underline}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.field label{font-size:14px;font-weight:500}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid #C3C9C4;background:var(--paper);border-radius:2px;color:var(--ink)}
+.field textarea{min-height:130px;resize:vertical}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#394148;margin:6px 0 26px}
+.consent input{margin-top:4px;width:18px;height:18px;accent-color:var(--petrol)}
+.form-status{margin-top:16px;font-size:15px;color:var(--verdigris-deep);min-height:1.5em}
+
+/* Footer */
+.site-footer{background:linear-gradient(180deg,rgba(24,36,44,.95),rgba(24,36,44,.98)),url(images/footer-stpauls-bridge.jpg) center 20%/cover no-repeat;color:var(--on-dark-muted);font-size:14px;padding:72px 0 40px}
+.foot-top{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;padding-bottom:40px;border-bottom:1px solid rgba(233,238,236,.12)}
+.foot-top .brand-name{color:var(--on-dark)}
+.disclaimer{font-size:14px;line-height:1.7;max-width:62em}
+.foot-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:28px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{color:var(--on-dark)}
+
+/* Luxembourg page */
+.lux-hero{padding:88px 0 96px;background:linear-gradient(165deg,rgba(24,36,44,.94),rgba(24,36,44,.85) 45%,rgba(24,36,44,.97)),url(images/lux-hero-city.jpg) center 40%/cover no-repeat}
+.crumb{font-size:14px;color:var(--on-dark-muted);text-decoration:none;display:inline-block;margin-bottom:36px}
+.crumb:hover{color:var(--on-dark)}
+.lux-hero h1{font-size:clamp(40px,5vw,68px);line-height:1.05;font-weight:300;max-width:14em}
+.lux-hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,30px);color:var(--verdigris);margin-top:20px;font-weight:300}
+.lux-intro{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.lux-intro .lead{font-family:var(--serif);font-size:25px;line-height:1.4;margin-bottom:24px}
+.lux-intro p{color:#394148}
+.hub text{font-family:var(--sans);font-size:13px;fill:var(--ink)}
+.hub .spoke{stroke:#AEB7B1;stroke-width:1;stroke-dasharray:3 4}
+.hub .ring{fill:none;stroke:var(--rule)}
+.hub .pnode{fill:var(--paper);stroke:var(--petrol);stroke-width:1.5}
+.hub-cap{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.who div{padding:26px 0;border-top:1px solid var(--rule);font-family:var(--serif);font-size:21px;line-height:1.3}
+.lux-services{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.lux-services article{padding:32px 0;border-top:1px solid var(--rule)}
+.lux-services h3{font-size:24px;margin-bottom:10px}
+.lux-services p{color:#394148;font-size:16px}
+.structures{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.caveat{border-left:3px solid var(--petrol);padding:4px 0 4px 24px;color:#394148}
+.caveat p{font-size:16px}
+.struct-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.struct-list li{padding:18px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:21px}
+.struct-list li small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:2px}
+.process{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);counter-reset:step;position:relative}
+.process::before{content:"";position:absolute;left:0;right:0;top:22px;height:1px;background:rgba(233,238,236,.25)}
+.process li{counter-increment:step;padding-right:20px;position:relative}
+.process li::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--verdigris);border-radius:50%;background:var(--slate);color:var(--verdigris);font-family:var(--serif);font-size:20px;margin-bottom:22px;position:relative}
+.process h3{font-size:20px;line-height:1.25}
+.cta-band{padding:96px 0;background:linear-gradient(165deg,rgba(36,63,74,.93),rgba(36,63,74,.88)),url(images/cta-tower-bridge-night.jpg) center/cover no-repeat;color:var(--on-dark)}
+.cta-band .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;max-width:15em;font-weight:300}
+.cta-band p{color:var(--on-dark-muted);margin-top:14px;font-size:18px}
+
+/* Legal pages */
+.legal-hero{padding:72px 0 64px;background:var(--slate);color:var(--on-dark)}
+.legal-hero h1{font-size:clamp(36px,4.4vw,56px);line-height:1.08;font-weight:300}
+.legal-hero .updated{margin-top:16px;color:var(--on-dark-muted);font-size:15px}
+.legal{max-width:760px}
+.legal h2{font-size:28px;line-height:1.2;margin:48px 0 14px}
+.legal h2:first-child{margin-top:0}
+.legal p,.legal li{color:#394148;font-size:16.5px}
+.legal ul{margin:0 0 1em;padding-left:22px}
+.legal li{margin-bottom:6px}
+.legal table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:15px}
+.legal th,.legal td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.legal th{font-weight:600;color:var(--ink);background:var(--stone)}
+.legal td{color:#394148}
+
+/* Cookie notice */
+.cookie-bar{position:fixed;left:20px;bottom:20px;z-index:40;max-width:540px;background:var(--slate);color:var(--on-dark);padding:22px 24px;border-radius:3px;box-shadow:0 10px 30px rgba(24,36,44,.3);font-size:14.5px;line-height:1.55}
+.cookie-bar[hidden]{display:none}
+.cookie-bar p{margin:0 0 16px;color:var(--on-dark)}
+.cookie-bar .text-link{color:var(--verdigris)}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions .btn{padding:10px 20px;font-size:14px}
+dialog.cookie-panel{margin:auto;border:0;border-radius:3px;padding:0;max-width:560px;width:calc(100% - 40px);color:var(--ink);background:var(--paper);box-shadow:0 20px 60px rgba(24,36,44,.35)}
+dialog.cookie-panel::backdrop{background:rgba(24,36,44,.6)}
+.cookie-panel-inner{padding:32px}
+.cookie-panel h2{font-size:28px;margin-bottom:10px}
+.cookie-panel p{font-size:15px;color:#394148}
+.cookie-cat{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--rule)}
+.cookie-cat h3{font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:4px}
+.cookie-cat p{margin:0;font-size:14px}
+.cookie-cat .state{font-size:13px;font-weight:500;color:var(--verdigris-deep);white-space:nowrap}
+.cookie-cat .state.off{color:var(--muted)}
+.cookie-panel .btn{margin-top:18px}
+
+/* Pages */
+[data-page]{display:none}
+[data-page].active{display:block}
+
+/* Review notes */
+.note{display:none;background:#FFF6D6;color:#4A3B00;border:1px solid #E7D48A;font-family:var(--sans);font-size:13px;line-height:1.45;padding:10px 14px;margin:14px 0;border-radius:3px;max-width:min(520px,100%)}
+.note b{font-weight:600}
+body.notes-on .note{display:block}
+.notes-toggle{position:fixed;right:20px;bottom:20px;z-index:50;background:#FFF6D6;color:#4A3B00;border:1px solid #E7D48A;font:500 14px var(--sans);padding:12px 18px;border-radius:40px;cursor:pointer;box-shadow:0 6px 20px rgba(24,36,44,.18)}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.contact-grid,.lux-intro,.structures,.team-grid,.mv,.foot-top{grid-template-columns:1fr;gap:48px}
+  .focus{grid-template-columns:1fr 1fr}
+  .values{grid-template-columns:1fr 1fr}
+  .svc,.model{grid-template-columns:1fr;gap:12px}
+  .svc.lux::before{left:-20px}
+  .process{grid-template-columns:1fr 1fr 1fr;gap:40px 0}
+  .process::before{display:none}
+  .who{grid-template-columns:1fr 1fr}
+  .photo-slot{aspect-ratio:16/10}
+  .person{grid-template-columns:200px 1fr;gap:32px}
+  .banner-photo{aspect-ratio:16/10}
+}
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .section{padding:80px 0}
+  .nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid var(--rule);box-shadow:0 12px 20px rgba(24,36,44,.08)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;border-bottom:1px solid var(--rule)}
+  .menu-btn{display:block}
+  .focus,.values,.who,.lux-services,form .row{grid-template-columns:1fr}
+  .focus-item{padding:28px 0 32px;margin-right:0}
+  .person{grid-template-columns:1fr}
+  .portrait{max-width:220px}
+  .process{grid-template-columns:1fr}
+  .legal-hero{padding:48px 0 40px}
+  .legal-hero + .section{padding-top:48px}
+  .legal h2{font-size:24px;margin:36px 0 12px}
+  .legal table,.legal tbody,.legal tr,.legal td{display:block}
+  .legal thead{display:none}
+  .legal tr{border:1px solid var(--rule);margin-bottom:12px;background:#fff}
+  .legal td{border-bottom:0;padding:8px 14px}
+  .legal td::before{content:attr(data-label);display:block;font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+  .cookie-bar{left:0;right:0;bottom:0;max-width:none;border-radius:0;padding:16px 20px;font-size:13.5px}
+  .cookie-bar p{margin-bottom:12px}
+  .cookie-actions .btn{flex:1;padding:10px 12px}
+  .notes-toggle{bottom:auto;top:84px;right:12px;padding:8px 12px;font-size:12px}
+  dialog.cookie-panel{max-height:calc(100% - 32px);overflow:auto}
+  .cookie-panel-inner{padding:24px 20px}
+  .cookie-cat{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .truss-fig .draw{animation:none;stroke-dashoffset:0}
+  .truss-fig .node,.truss-fig text{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Acreo Partners home">
+      <img src="images/acreo-logo.jpg" alt="Acreo Partners" class="brand-mark" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="brand-name" style="display:none">Acreo Partners</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#luxembourg">Luxembourg</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<main data-page="home" class="active" id="top">
+
+  <section class="dark hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Independent advisory for cross-border growth and investment</h1>
+          <p class="lede">Acreo Partners supports companies, investors, sponsors and family offices across strategic transactions, investment structuring, technology and value creation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Discuss your project</a>
+            <a class="btn btn-ghost" href="#services">View our services</a>
+          </div>
+          <div class="note"><b>Hero:</b> título e subtítulo do teu documento. Sai o “Empowering Growth, Transforming Futures” e desaparece qualquer frase que sugira que a Acreo investe ou financia.</div>
+        </div>
+        <div>
+          <svg class="truss-fig" id="truss" viewBox="0 0 600 460" role="img" aria-label="Line drawing of a truss bridge connecting London and Luxembourg"></svg>
+          <div class="note"><b>Visual próprio</b> em vez de banco de imagens: uma treliça (estrutura + ligação) entre Londres e Luxemburgo. Vetorial, leve e 100% da marca. Por trás, uma foto da City ao fim do dia (Unsplash, uso comercial livre) fica esbatida a ~15% para dar profundidade sem competir com a treliça.</div>
+        </div>
+      </div>
+
+      <div class="focus">
+        <div class="focus-item">
+          <h3>M&amp;A &amp; Strategic Advisory</h3>
+          <p>Supporting shareholders, companies and investors throughout acquisitions, disposals, strategic partnerships and complex corporate transactions.</p>
+        </div>
+        <div class="focus-item">
+          <h3>Investment &amp; Transaction Advisory</h3>
+          <p>Assessing opportunities, coordinating due diligence and supporting investment decisions across selected sectors and jurisdictions.</p>
+        </div>
+        <div class="focus-item">
+          <h3>Technology Due Diligence</h3>
+          <p>Helping investors and companies evaluate technology, identify risks and define value-creation priorities before and after a transaction.</p>
+        </div>
+        <div class="focus-item lux">
+          <h3>Luxembourg Structuring Support</h3>
+          <p>Coordinating the establishment of Luxembourg investment and corporate structures alongside appropriately authorised legal, tax and regulated service providers.</p>
+          <a class="text-link" href="#luxembourg">Explore Luxembourg solutions</a>
+          <div class="note">Filete verde marca o serviço novo e leva à página autónoma.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="section-head" style="margin-bottom:0"><h2>About Acreo Partners</h2></div>
+          <figure class="photo-slot" style="margin-left:0;margin-right:0;margin-bottom:0">
+            <img src="images/about-city-skyline.jpg" alt="City of London skyline in evening light, with the Walkie Talkie tower and the Thames" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+            <figcaption>City of London</figcaption>
+          </figure>
+          <div class="note"><b>Imagem:</b> skyline da City (Unsplash, licença Unsplash: uso comercial gratuito, sem atribuição obrigatória). Ficheiro local em <code>images/about-city-skyline.jpg</code>, para alojar no próprio WordPress.</div>
+        </div>
+        <div class="about-copy">
+          <p class="lead">Acreo Partners is an independent advisory firm supporting companies, investors, sponsors and family offices across strategic transactions, investment structuring, technology and corporate development.</p>
+          <p>We combine international transaction experience, investment insight and specialist technology expertise to help clients evaluate opportunities, navigate complexity and execute their strategic objectives.</p>
+          <p>Our work ranges from M&amp;A and investment advisory to technology due diligence, value-creation planning and the coordination of Luxembourg investment and corporate structures.</p>
+          <p>Acreo Partners operates through a collaborative model, bringing together the appropriate legal, tax, regulatory, financial and industry specialists for each engagement. This enables our clients to access coordinated expertise while maintaining a single strategic point of contact.</p>
+          <p>We work selectively and confidentially, focusing on mandates where our experience, international network and hands-on involvement can create meaningful value.</p>
+        </div>
+      </div>
+      <p class="closing">Independent thinking. Coordinated execution. Lasting value.</p>
+    </div>
+  </section>
+
+  <section class="section stone" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>Organised by the mandates we take on, each delivered with the specialists it requires.</p>
+      </div>
+      <div class="note"><b>Removidos:</b> Private Equity, Venture Capital e Tailor-Made Funding Solutions — todos sugerem investimento ou financiamento direto. Os 6 serviços passam a ser mandatos de advisory.</div>
+      <figure class="banner-photo">
+        <img src="images/services-thames-panorama.jpg" alt="Evening view across the Thames to the towers of the City of London" loading="lazy">
+        <figcaption>The Thames, City of London — where many of our mandates begin</figcaption>
+      </figure>
+      <div class="note"><b>Imagem:</b> vista do Tamisa e da City (Unsplash, uso comercial livre) a separar a intro da lista de 6 serviços — a secção tinha só texto corrido.</div>
+      <div class="svc-list">
+        <article class="svc">
+          <h3>M&amp;A &amp; Strategic Advisory</h3>
+          <p>We support shareholders, companies and investors across acquisitions, disposals, strategic partnerships and other corporate transactions. Our role may include opportunity assessment, transaction preparation, coordination of advisers, commercial analysis, negotiation support and project management.</p>
+        </article>
+        <article class="svc">
+          <h3>Investment &amp; Transaction Advisory</h3>
+          <p>We assist investors, family offices and sponsors in assessing selected investment opportunities, coordinating due diligence workstreams and preparing decision-ready analysis for investment committees and stakeholders.</p>
+        </article>
+        <article class="svc">
+          <h3>Technology Due Diligence &amp; Value Creation</h3>
+          <p>We provide specialist technology assessments for private equity, venture capital, corporate investors and management teams, covering technology architecture, scalability, cybersecurity, data, AI and cloud readiness, technical debt and post-transaction value creation.</p>
+        </article>
+        <article class="svc">
+          <h3>Growth &amp; Corporate Strategy</h3>
+          <p>We help businesses define practical strategies for growth, market expansion, operational improvement and long-term value creation, aligning commercial ambitions with execution capabilities.</p>
+        </article>
+        <article class="svc">
+          <h3>Exit Preparation</h3>
+          <p>We support shareholders and management teams in preparing businesses for a potential sale, investment round or strategic transaction, identifying value drivers, addressing key readiness gaps and coordinating the required workstreams.</p>
+        </article>
+        <article class="svc lux">
+          <h3>Luxembourg Fund &amp; Corporate Structuring Support</h3>
+          <div>
+            <p>We support international investors, sponsors, entrepreneurs and family offices in assessing and coordinating the establishment of Luxembourg investment and corporate structures, working alongside authorised legal, tax, regulatory, banking and corporate service providers.</p>
+            <a class="text-link" href="#luxembourg">Explore Luxembourg solutions</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="mission">
+    <div class="wrap">
+      <div class="mv">
+        <div>
+          <h3>Mission</h3>
+          <p>Our mission is to provide independent, commercially focused advice that helps companies and investors make informed decisions, execute complex projects and create sustainable long-term value.</p>
+        </div>
+        <div>
+          <h3>Vision</h3>
+          <p>Our vision is to become a trusted cross-border advisory partner for companies, investors and family offices operating between Europe and international markets.</p>
+        </div>
+      </div>
+      <div class="values">
+        <div><h4>Independence</h4><p>We provide objective advice focused on our clients’ strategic and commercial interests.</p></div>
+        <div><h4>Integrity</h4><p>We operate with discretion, transparency and the highest professional standards.</p></div>
+        <div><h4>Partnership</h4><p>We work closely with clients and specialist advisers, aligning all parties around clear objectives.</p></div>
+        <div><h4>Excellence</h4><p>We bring rigorous analysis, experienced judgement and hands-on execution to every engagement.</p></div>
+      </div>
+      <div class="note">Ficam só os 4 valores. “Innovation” e “Sustainability” saem. Fundo com foto da Millennium Bridge ao pôr-do-sol (Unsplash) a ~12% de opacidade — dá atmosfera à secção sem tirar legibilidade ao texto.</div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="wrap">
+      <div class="section-head"><h2>Team</h2></div>
+      <div class="team-grid">
+        <article class="person">
+          <div class="portrait has-photo"><img src="images/tiago-falcao.jpg" alt="Portrait of Tiago Falcão, Managing Partner of Acreo Partners" loading="lazy"></div>
+          <div>
+            <h3>Tiago Falcão</h3>
+            <p class="role">Managing Partner</p>
+            <p>Tiago Falcão is Managing Partner of Acreo Partners, with over 25 years of experience in banking, financial markets, investment and corporate advisory.</p>
+            <p>He advises companies, investors and family offices on investment opportunities, strategic transactions and cross-border structuring. He also serves as an independent director of a Luxembourg investment fund, focusing on governance, investment oversight and risk supervision.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/tiago-falc%C3%A3o-53a90467" target="_blank" rel="noopener">LinkedIn profile</a>
+          </div>
+        </article>
+        <article class="person">
+          <div class="portrait has-photo"><img src="images/carla-della-bona.jpg" alt="Portrait of Carla Della Bona, Partner and Chief Legal Officer of Acreo Partners" loading="lazy"></div>
+          <div>
+            <h3>Carla Della Bona</h3>
+            <p class="role">Partner &amp; Chief Legal Officer</p>
+            <p>Carla Della Bona is a Partner and Chief Legal Officer at Acreo Partners, as well as an experienced lawyer, academic, published author and international business adviser. Her expertise spans corporate governance, compliance, corporate structuring and cross-border legal matters.</p>
+            <p>Carla is also the founding partner of Della Bona Sociedade de Advogados and a university professor. She holds a dual doctorate in Law from UNIVALI and the University of Alicante, as well as a master’s degree in Latin American Integration.</p>
+          </div>
+        </article>
+        <article class="person">
+          <div class="portrait has-photo"><img src="images/carlos-lima.png" alt="Portrait of Carlos Lima, Technology &amp; M&amp;A Adviser" loading="lazy"></div>
+          <div>
+            <h3>Carlos Lima</h3>
+            <p class="role">Technology &amp; M&amp;A Adviser</p>
+            <p>Carlos Lima advises investors and companies on technology due diligence, digital strategy and technology-related aspects of M&amp;A transactions. His work focuses on helping clients assess technical risk, scalability, operational resilience and post-transaction value-creation opportunities.</p>
+            <a class="text-link" href="#">LinkedIn profile</a>
+          </div>
+        </article>
+      </div>
+      <div class="note"><b>Fotos:</b> as duas com o mesmo tratamento (luz, fundo neutro, enquadramento). Hoje uma é .jpeg e outra .png com estilos diferentes — isso sozinho tira credibilidade. As três fotos já estão (as do Tiago e da Carla recortadas a 4:5 a partir do quadrado original). A do Carlos tem só 350×425 px, o que fica ligeiramente macio em ecrãs retina — se houver uma versão maior, vale a pena trocar. Com 3 pessoas, os cartões passaram a coluna vertical (foto em cima). A Carla não tem link de LinkedIn — falta enviarem o URL.</div>
+
+      <div class="model">
+        <h3>How each engagement is staffed</h3>
+        <div>
+          <p>Every mandate brings together the specialists it requires, coordinated through a single strategic point of contact.</p>
+          <ul aria-label="Specialist disciplines">
+            <li>Legal</li><li>Tax</li><li>Regulatory</li><li>Financial</li><li>Industry</li><li>Technology</li>
+          </ul>
+          <div class="note">Dá peso a uma equipa pequena sem inventar pessoas: explica o modelo colaborativo que já está no teu texto do About.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stone" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="section-head" style="margin-bottom:0">
+            <h2>Contact</h2>
+            <p>All enquiries are treated confidentially.</p>
+          </div>
+          <ul class="contact-lines">
+            <li><span>Email</span><a href="mailto:contact@acreopartners.co.uk">contact@acreopartners.co.uk</a></li>
+            <li><span>Telephone</span><a href="tel:+351925329644">+351 925 329 644</a></li>
+            <li><span>LinkedIn</span><a href="#">Acreo Partners</a></li>
+          </ul>
+          <div class="note"><b>Bug no site atual:</b> o telefone mostra +351 925 329 644 mas o link é <code>tel:425-334-5956</code> — quem carrega no telemóvel liga para o número errado. Email aqui é placeholder.</div>
+        </div>
+        <form id="contact-form" novalidate>
+          <div class="row">
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" autocomplete="organization"></div>
+            <div class="field">
+              <label for="f-type">Type of enquiry</label>
+              <select id="f-type" name="type" required>
+                <option value="">Select one</option>
+                <option>M&amp;A &amp; strategic advisory</option>
+                <option>Investment &amp; transaction advisory</option>
+                <option>Technology due diligence</option>
+                <option>Growth &amp; corporate strategy</option>
+                <option>Exit preparation</option>
+                <option value="lux">Luxembourg structuring support</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" required></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="consent">
+            <input type="checkbox" id="f-consent" required>
+            <span>I agree that Acreo Partners may process the information above to respond to my enquiry, as described in the <a href="#privacy" class="text-link">Privacy Notice</a>.</span>
+          </label>
+          <button class="btn btn-dark" type="submit">Send enquiry</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <div class="note"><b>Anti-lixo:</b> consentimento RGPD + link para Privacy Notice; o campo “Type of enquiry” obrigatório e um honeypot invisível (+ Cloudflare Turnstile no site real) cortam a maioria do spam sem retirar o formulário.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ LUXEMBOURG ============ -->
+<main data-page="luxembourg">
+  <section class="dark lux-hero">
+    <div class="wrap">
+      <a class="crumb" href="#services">All services</a>
+      <h1>Luxembourg Fund &amp; Corporate Structuring Support</h1>
+      <p class="sub">From investment concept to operational structure</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact-lux">Discuss your project</a>
+        <a class="btn btn-ghost" href="#lux-process">See how it works</a>
+      </div>
+      <div class="note">Fundo com o skyline da City ao entardecer (Unsplash) — mantém a ligação visual a Londres nesta página, já que o diagrama de coordenação abaixo é o elemento central.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap lux-intro">
+      <div>
+        <p class="lead">Acreo Partners supports international investors, sponsors, entrepreneurs and family offices in assessing, structuring and establishing Luxembourg investment and corporate vehicles.</p>
+        <p>We act as a central strategic coordinator throughout the process, helping clients translate their commercial and investment objectives into a clear implementation roadmap.</p>
+        <p>Working alongside selected Luxembourg legal advisers, tax specialists, AIFMs, central administrators, depositaries, banks, auditors and corporate service providers, we coordinate the different workstreams required to establish a professionally structured and operational vehicle.</p>
+      </div>
+      <figure style="margin:0">
+        <svg class="hub" id="hub" viewBox="0 0 640 500" role="img" aria-label="Diagram: Acreo Partners at the centre, coordinating legal, tax, AIFM, depositary, bank, audit, corporate services and central administration providers"></svg>
+        <figcaption class="hub-cap">One point of contact across independent, authorised providers.</figcaption>
+        <div class="note" style="margin-left:auto;margin-right:auto">Diagrama próprio com enquadramento lógico (o papel de coordenador central). Deixa claro visualmente que os serviços regulados ficam do lado dos parceiros.</div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section stone">
+    <div class="wrap">
+      <div class="section-head"><h2>Who we support</h2></div>
+      <div class="who">
+        <div>International investors and sponsors</div>
+        <div>Family offices and private investment groups</div>
+        <div>Entrepreneurs establishing a Luxembourg holding or investment platform</div>
+        <div>Companies creating cross-border ownership or acquisition structures</div>
+        <div>Promoters considering a Luxembourg investment fund</div>
+        <div>Existing structures requiring governance or operational support</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>Our services</h2></div>
+      <div class="lux-services">
+        <article><h3>Initial assessment</h3><p>Understanding the proposed strategy, asset classes, investor profile, target jurisdictions, governance requirements and long-term objectives.</p></article>
+        <article><h3>Structuring roadmap</h3><p>Coordinating a preliminary assessment of potential vehicles, governance arrangements, service-provider requirements, implementation stages, indicative timing and costs.</p></article>
+        <article><h3>Service-provider selection</h3><p>Supporting the identification and coordination of appropriate legal, tax, regulatory, banking, administration, audit, domiciliation and governance providers.</p></article>
+        <article><h3>Establishment and onboarding</h3><p>Coordinating incorporation or establishment workstreams, documentation, KYC and AML requirements, banking arrangements and operational readiness.</p></article>
+        <article><h3>Governance support</h3><p>Assisting with governance design, board composition, reporting arrangements, conflicts frameworks and coordination between stakeholders and service providers.</p></article>
+        <article><h3>Ongoing strategic coordination</h3><p>Supporting the structure following launch, including strategic initiatives, transactions, service-provider coordination and governance-related projects.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stone">
+    <div class="wrap">
+      <figure class="banner-photo">
+        <img src="images/structures-tower-bridge.jpg" alt="Tower Bridge at sunset, with the Shard in the background" loading="lazy">
+        <figcaption>Structure and connection — the throughline from the homepage truss diagram</figcaption>
+      </figure>
+      <div class="note">Foto de Tower Bridge (Unsplash) a repetir, em foto, o mesmo conceito da treliça vetorial da home: estrutura + ligação.</div>
+    </div>
+    <div class="wrap structures">
+      <div>
+        <div class="section-head" style="margin-bottom:28px"><h2>Potential structures</h2></div>
+        <div class="caveat">
+          <p>Depending on the client’s objectives and subject to advice from appropriately qualified Luxembourg legal and tax advisers, potential solutions may include the structures listed here.</p>
+          <p>The choice of vehicle, and any regulatory authorisation it requires, is always determined with those advisers and the relevant authorised providers.</p>
+        </div>
+        <div class="note"><b>Prudência:</b> linguagem condicional, sem prometer resultados, prazos ou custos. Acrescentei a 2.ª frase para reforçar que a Acreo não escolhe o veículo sozinha — confirma com o advogado no Luxemburgo.</div>
+      </div>
+      <ul class="struct-list">
+        <li>Luxembourg sociétés anonymes<small>S.A.</small></li>
+        <li>S.à r.l. and other commercial companies</li>
+        <li>Holding and investment structures</li>
+        <li>SOPARFI structures</li>
+        <li>Special-purpose and acquisition vehicles</li>
+        <li>RAIFs and other alternative investment fund structures</li>
+        <li>Regulated investment vehicles, where appropriate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section dark" id="lux-process">
+    <div class="wrap">
+      <div class="section-head"><h2>How the process works</h2></div>
+      <ol class="process">
+        <li><h3>Discovery and objectives</h3></li>
+        <li><h3>Preliminary structuring assessment</h3></li>
+        <li><h3>Provider selection and coordination</h3></li>
+        <li><h3>Establishment and onboarding</h3></li>
+        <li><h3>Operational launch</h3></li>
+        <li><h3>Ongoing strategic and governance support</h3></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <div>
+        <h2>Considering a Luxembourg investment or corporate structure?</h2>
+        <p>Speak with Acreo Partners about your objectives and the appropriate next steps.</p>
+      </div>
+      <a class="btn btn-primary" href="#contact-lux">Discuss your project</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PRIVACY ============ -->
+<main data-page="privacy">
+  <section class="legal-hero">
+    <div class="wrap">
+      <a class="crumb" href="#top">Back to home</a>
+      <h1>Privacy Notice</h1>
+      <p class="updated">Last updated: 23 September 2026</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap legal">
+      <div class="note"><b>Rascunho para revisão da advogada.</b> Escrito com base no que o site faz hoje (só formulário de contacto, sem analytics). Os campos entre [parênteses rectos] são dados que só a Acreo/advogada sabem. Não substitui aconselhamento jurídico.</div>
+
+      <h2>Who we are</h2>
+      <p>This website is operated by Acreo Partners Ltd (“Acreo Partners”, “we”, “us”), a company registered in England and Wales, company no. 14432135, with its registered office at Birchin Court, 20 Birchin Lane, London, EC3V 9DJ. We are the controller of the personal data described in this notice.</p>
+      <p>You can contact us about this notice or your personal data at <a class="text-link" href="mailto:contact@acreopartners.co.uk">contact@acreopartners.co.uk</a>. [ICO registration number, if applicable: to be confirmed.]</p>
+
+      <h2>What information we collect</h2>
+      <p>When you send an enquiry through the contact form, we collect the information you provide:</p>
+      <ul>
+        <li>your name and email address;</li>
+        <li>your organisation (optional);</li>
+        <li>the type of enquiry you select;</li>
+        <li>the content of your message.</li>
+      </ul>
+      <p>If you email or telephone us, we also keep the details you share and our correspondence with you.</p>
+      <p>Our website and its hosting provider may automatically process technical data such as your IP address, browser type and the date and time of your visit, for security and to keep the site working. We do not use analytics or advertising tools on this website.</p>
+
+      <h2>How and why we use your information</h2>
+      <table>
+        <thead><tr><th>Purpose</th><th>Lawful basis (UK GDPR)</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Purpose">To read, respond to and follow up your enquiry, and to consider whether and how we can assist you.</td><td data-label="Lawful basis">Our legitimate interests in responding to enquiries about our services; and, where you ask us to, steps taken before entering into an engagement.</td></tr>
+          <tr><td data-label="Purpose">To keep the website secure and prevent spam or abuse.</td><td data-label="Lawful basis">Our legitimate interests in protecting our website and business.</td></tr>
+          <tr><td data-label="Purpose">To keep records and comply with our legal and regulatory obligations.</td><td data-label="Lawful basis">Legal obligation; legitimate interests in maintaining business records.</td></tr>
+        </tbody>
+      </table>
+      <p>We do not use your information for automated decision-making or profiling, and we do not sell your personal data. We will not send you marketing communications unless you have asked us to or the law otherwise allows it.</p>
+
+      <h2>Who we share it with</h2>
+      <p>We share personal data only where necessary and with appropriate safeguards, with:</p>
+      <ul>
+        <li>service providers that host our website and provide our email and IT systems [names to be confirmed, e.g. website host, email provider];</li>
+        <li>professional advisers such as lawyers and accountants, where needed;</li>
+        <li>regulators, courts or law enforcement, where required by law.</li>
+      </ul>
+      <p>Where we involve independent legal, tax or other specialists in a matter you have asked us about, we will tell you and share only what is needed.</p>
+
+      <h2>International transfers</h2>
+      <p>Some of our providers may process data outside the United Kingdom. Where this happens, we ensure the transfer is protected by an appropriate safeguard under UK data protection law, such as an adequacy regulation or the UK International Data Transfer Agreement or Addendum. [To be confirmed once providers are chosen.]</p>
+
+      <h2>How long we keep it</h2>
+      <p>We keep enquiry details for as long as needed to deal with your enquiry and any resulting engagement, and then for [24 months – period to be confirmed] unless we need to keep them longer for legal or regulatory reasons. Enquiries that do not lead to any relationship are deleted after that period.</p>
+
+      <h2>Your rights</h2>
+      <p>Under UK data protection law you have the right to:</p>
+      <ul>
+        <li>be informed about how we use your data;</li>
+        <li>access the personal data we hold about you;</li>
+        <li>have inaccurate data corrected;</li>
+        <li>have your data erased, in certain circumstances;</li>
+        <li>restrict or object to our processing, in certain circumstances;</li>
+        <li>receive your data in a portable format, where applicable;</li>
+        <li>withdraw consent at any time, where we rely on it.</li>
+      </ul>
+      <p>To exercise any of these rights, email <a class="text-link" href="mailto:contact@acreopartners.co.uk">contact@acreopartners.co.uk</a>. We will respond within one month.</p>
+
+      <h2>Complaints</h2>
+      <p>If you are unhappy with how we have handled your data, please contact us first. You also have the right to complain to the Information Commissioner’s Office (ICO) at <a class="text-link" href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or on 0303 123 1113.</p>
+
+      <h2>Cookies</h2>
+      <p>Information about the cookies and similar technologies on this website is in our <a class="text-link" href="#cookies">Cookie Notice</a>.</p>
+
+      <h2>Changes to this notice</h2>
+      <p>We may update this notice from time to time. The date at the top shows when it was last changed.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ COOKIES ============ -->
+<main data-page="cookies">
+  <section class="legal-hero">
+    <div class="wrap">
+      <a class="crumb" href="#top">Back to home</a>
+      <h1>Cookie Notice</h1>
+      <p class="updated">Last updated: 23 September 2026</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap legal">
+      <div class="note"><b>Rascunho para revisão da advogada.</b> Assume só cookies estritamente necessários (sem Google Analytics nem publicidade), o que em geral dispensa consentimento prévio. Confirmar quando o site final estiver montado: se o Cloudflare Turnstile, o tema WordPress ou qualquer plugin criarem cookies, têm de entrar na tabela. Os Google Fonts devem ser alojados localmente no site real (pedir ao Google Fonts transmite o IP do visitante).</div>
+
+      <h2>What are cookies?</h2>
+      <p>Cookies are small text files placed on your device when you visit a website. Similar technologies, such as local storage, work in a comparable way. This notice covers both and is provided in line with the Privacy and Electronic Communications Regulations (PECR) and UK GDPR.</p>
+
+      <h2>How we use them</h2>
+      <p>Acreo Partners uses only cookies and similar technologies that are strictly necessary for the website to work or to protect it. We do <strong>not</strong> use analytics, advertising or social media tracking cookies. Because strictly necessary cookies do not require consent, we do not ask you to accept them, but you can review them in Cookie Settings at any time.</p>
+
+      <table>
+        <thead><tr><th>Name</th><th>Purpose</th><th>Duration</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Name">cookie_notice</td><td data-label="Purpose">Remembers that you have seen the cookie notice, so we do not show it on every visit.</td><td data-label="Duration">12 months</td><td data-label="Type">Strictly necessary (first-party)</td></tr>
+          <tr><td data-label="Name">[Anti-spam / security, e.g. Cloudflare Turnstile]</td><td data-label="Purpose">Helps protect the contact form from automated abuse. [To be confirmed for the final site.]</td><td data-label="Duration">[Session]</td><td data-label="Type">Strictly necessary (third-party)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Third-party links</h2>
+      <p>Our website links to external sites such as LinkedIn. Those sites have their own privacy and cookie policies and we are not responsible for them. We do not embed third-party content that sets cookies on this website.</p>
+
+      <h2>Managing cookies</h2>
+      <p>You can view the categories we use and your choices at any time by opening <a class="text-link" href="#" data-cookie-settings>Cookie Settings</a>. You can also block or delete cookies in your browser settings; note that blocking strictly necessary cookies may affect how the contact form works. Guidance is available at <a class="text-link" href="https://ico.org.uk/for-the-public/online/cookies/" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+
+      <h2>More information</h2>
+      <p>How we handle personal data is explained in our <a class="text-link" href="#privacy">Privacy Notice</a>. Questions about cookies can be sent to <a class="text-link" href="mailto:contact@acreopartners.co.uk">contact@acreopartners.co.uk</a>.</p>
+    </div>
+  </section>
+</main>
+
+<div class="cookie-bar" id="cookie-bar" role="region" aria-label="Cookie notice" hidden>
+  <p>This website uses only cookies that are strictly necessary for it to work. We do not use analytics or advertising cookies. See our <a class="text-link" href="#cookies">Cookie Notice</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" type="button" data-cookie-ok>OK</button>
+    <button class="btn btn-ghost" type="button" data-cookie-settings>Cookie Settings</button>
+  </div>
+</div>
+
+<dialog class="cookie-panel" id="cookie-panel" aria-labelledby="cookie-panel-title">
+  <div class="cookie-panel-inner">
+    <h2 id="cookie-panel-title">Cookie Settings</h2>
+    <p>We only use cookies that are strictly necessary. There are no optional cookies to switch on or off.</p>
+    <div class="cookie-cat">
+      <div><h3>Strictly necessary</h3><p>Needed for the website to work and to keep the contact form secure. They cannot be switched off.</p></div>
+      <span class="state">Always active</span>
+    </div>
+    <div class="cookie-cat">
+      <div><h3>Analytics</h3><p>Not used on this website.</p></div>
+      <span class="state off">Not used</span>
+    </div>
+    <div class="cookie-cat">
+      <div><h3>Advertising and social media</h3><p>Not used on this website.</p></div>
+      <span class="state off">Not used</span>
+    </div>
+    <button class="btn btn-dark" type="button" data-cookie-close>Save and close</button>
+    <p style="margin-top:14px"><a class="text-link" href="#cookies">Read the Cookie Notice</a></p>
+  </div>
+</dialog>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="brand-name">Acreo Partners</span>
+        <p style="margin-top:12px">Independent thinking. Coordinated execution. Lasting value.</p>
+      </div>
+      <p class="disclaimer">Acreo Partners provides corporate, strategic and transaction advisory, structuring support and project coordination services. Acreo Partners does not provide legal, tax, audit, investment management, fund management, depositary or other regulated financial services. Where required, such services are provided by appropriately qualified and authorised independent professionals and service providers.</p>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Acreo Partners Ltd. Registered in England and Wales, company no. 14432135. Registered office: Birchin Court, 20 Birchin Lane, London, EC3V 9DJ.</span>
+      <nav class="foot-links" aria-label="Legal">
+        <a href="#privacy">Privacy Notice</a><a href="#cookies">Cookie Notice</a><a href="#" data-cookie-settings>Cookie Settings</a><a href="#">LinkedIn</a>
+      </nav>
+    </div>
+    <div class="note" style="margin-top:20px"><b>Rodapé:</b> uma Ltd no UK tem de mostrar no site o número de empresa e a sede registada (preenche com os dados da Companies House). Sai o “Created with ❤ using WordPress and Kubio”.</div>
+  </div>
+</footer>
+
+<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas de revisão</button>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e}
+
+/* Truss: London to Luxembourg */
+(function(){
+  const svg=document.getElementById('truss');
+  const L=40,R=560,base=330,H=200,n=10,step=(R-L)/n;
+  const bottom=[...Array(n+1)].map((_,k)=>[L+k*step,base]);
+  const top=[...Array(n)].map((_,k)=>{const x=L+(k+.5)*step;return [x,base-H*Math.sin(Math.PI*(x-L)/(R-L))]});
+  [base+46,base+62,base+74].forEach((y,i)=>el('line',{x1:L+30*i,x2:R-30*i,y1:y,y2:y,class:'horizon'},svg));
+  const p=(pts)=>'M'+pts.map(q=>q.join(' ')).join(' L');
+  el('path',{d:p([bottom[0],bottom[n]]),class:'draw chord',pathLength:1,style:'--d:0s'},svg);
+  el('path',{d:p([bottom[0],...top,bottom[n]]),class:'draw chord',pathLength:1,style:'--d:.3s'},svg);
+  for(let k=0;k<n;k++){
+    el('path',{d:p([bottom[k],top[k],bottom[k+1]]),class:'draw',pathLength:1,style:`--d:${.5+k*.07}s`},svg);
+  }
+  top.forEach((q,k)=>el('circle',{cx:q[0],cy:q[1],r:3,class:'node',style:`--d:${1.3+k*.05}s`},svg));
+  bottom.slice(1,-1).forEach((q,k)=>el('circle',{cx:q[0],cy:q[1],r:2.5,class:'node',style:`--d:${1.3+k*.05}s`},svg));
+  [bottom[0],bottom[n]].forEach(q=>el('circle',{cx:q[0],cy:q[1],r:6,class:'node anchor',style:'--d:1.8s'},svg));
+  el('text',{x:L,y:base+30,'text-anchor':'start'},svg).textContent='London';
+  el('text',{x:R,y:base+30,'text-anchor':'end'},svg).textContent='Luxembourg';
+})();
+
+
+/* Coordination hub */
+(function(){
+  const svg=document.getElementById('hub');
+  const cx=320,cy=250,r=170;
+  const labels=['Legal advisers','Tax specialists','AIFMs','Depositaries','Banks','Auditors','Corporate services','Central administrators'];
+  el('circle',{cx,cy,r,class:'ring'},svg);
+  labels.forEach((t,i)=>{
+    const a=(-90+i*45)*Math.PI/180, x=cx+r*Math.cos(a), y=cy+r*Math.sin(a);
+    el('line',{x1:cx,y1:cy,x2:x,y2:y,class:'spoke'},svg);
+    el('circle',{cx:x,cy:y,r:7,class:'pnode'},svg);
+    const c=Math.cos(a), lx=cx+(r+16)*c, ly=cy+(r+16)*Math.sin(a);
+    const anchor=Math.abs(c)<.2?'middle':(c>0?'start':'end');
+    const dy=Math.abs(c)<.2?(Math.sin(a)<0?-6:16):5;
+    el('text',{x:lx,y:ly+dy,'text-anchor':anchor},svg).textContent=t;
+  });
+  el('circle',{cx,cy,r:64,fill:'#18242C'},svg);
+  const t1=el('text',{x:cx,y:cy-2,'text-anchor':'middle',style:'fill:#E9EEEC;font-family:Newsreader,serif;font-size:19px'},svg);t1.textContent='Acreo Partners';
+  const t2=el('text',{x:cx,y:cy+20,'text-anchor':'middle',style:'fill:#7FA89A;font-size:12px'},svg);t2.textContent='strategic coordination';
+})();
+
+/* Simple two-page router */
+const pages={};
+document.querySelectorAll('[data-page]').forEach(m=>pages[m.dataset.page]=m);
+const navLinks=document.querySelectorAll('.nav a');
+function route(){
+  let h=location.hash.replace('#','');
+  let page='home';
+  if(h==='luxembourg'||h==='lux-process')page='luxembourg';
+  else if(h==='privacy'||h==='cookies')page=h;
+  for(const k in pages)pages[k].classList.toggle('active',k===page);
+  navLinks.forEach(a=>a.removeAttribute('aria-current'));
+  if(page==='luxembourg') document.querySelector('.nav a[href="#luxembourg"]').setAttribute('aria-current','page');
+  if(h==='contact-lux'){
+    document.getElementById('f-type').value='lux';h='contact';
+  }
+  const target=(['luxembourg','privacy','cookies','','top'].includes(h))?null:document.getElementById(h);
+  requestAnimationFrame(()=>{ target?target.scrollIntoView():window.scrollTo(0,0) });
+  document.getElementById('nav').classList.remove('open');
+}
+window.addEventListener('hashchange',route);route();
+
+/* Mobile menu */
+const mb=document.querySelector('.menu-btn');
+mb.addEventListener('click',()=>{const o=document.getElementById('nav').classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+
+/* Form (mock) */
+document.getElementById('contact-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target,s=f.querySelector('.form-status');
+  if(f.website.value){return}
+  const missing=[...f.querySelectorAll('[required]')].filter(i=>i.type==='checkbox'?!i.checked:!i.value.trim());
+  if(missing.length){
+    s.style.color='#9A3B2E';
+    s.textContent=missing.some(i=>i.type==='checkbox')&&missing.length===1
+      ?'Please confirm you agree to the Privacy Notice so we can reply.'
+      :'Please complete the highlighted fields: name, email, type of enquiry and message.';
+    missing[0].focus();return;
+  }
+  s.style.color='';s.textContent='Enquiry sent. We will reply by email.';
+  f.reset();
+});
+
+/* Cookie notice */
+(function(){
+  const bar=document.getElementById('cookie-bar'),panel=document.getElementById('cookie-panel');
+  const KEY='cookie_notice';
+  const get=()=>{try{return localStorage.getItem(KEY)}catch(e){return null}};
+  const set=()=>{try{localStorage.setItem(KEY,'1')}catch(e){}};
+  const dismiss=()=>{set();bar.hidden=true};
+  if(!get())bar.hidden=false;
+  bar.querySelector('[data-cookie-ok]').addEventListener('click',dismiss);
+  document.addEventListener('click',e=>{
+    if(e.target.closest('[data-cookie-settings]')){e.preventDefault();panel.showModal()}
+  });
+  panel.querySelector('[data-cookie-close]').addEventListener('click',()=>{dismiss();panel.close()});
+})();
+
+/* Review notes toggle */
+const nt=document.querySelector('.notes-toggle');
+nt.addEventListener('click',()=>{const on=document.body.classList.toggle('notes-on');nt.setAttribute('aria-pressed',on);nt.textContent=on?'Esconder notas de revisão':'Mostrar notas de revisão'});
+</script>
+</body>
+</html>

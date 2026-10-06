@@ -235,11 +235,6 @@ dialog.cookie-panel::backdrop{background:rgba(24,36,44,.6)}
 [data-page]{display:none}
 [data-page].active{display:block}
 
-/* Review notes */
-.note{display:none;background:#FFF6D6;color:#4A3B00;border:1px solid #E7D48A;font-family:var(--sans);font-size:13px;line-height:1.45;padding:10px 14px;margin:14px 0;border-radius:3px;max-width:min(520px,100%)}
-.note b{font-weight:600}
-body.notes-on .note{display:block}
-.notes-toggle{position:fixed;right:20px;bottom:20px;z-index:50;background:#FFF6D6;color:#4A3B00;border:1px solid #E7D48A;font:500 14px var(--sans);padding:12px 18px;border-radius:40px;cursor:pointer;box-shadow:0 6px 20px rgba(24,36,44,.18)}
 
 /* Responsive */
 @media (max-width:980px){
@@ -278,7 +273,6 @@ body.notes-on .note{display:block}
   .cookie-bar{left:0;right:0;bottom:0;max-width:none;border-radius:0;padding:16px 20px;font-size:13.5px}
   .cookie-bar p{margin-bottom:12px}
   .cookie-actions .btn{flex:1;padding:10px 12px}
-  .notes-toggle{bottom:auto;top:84px;right:12px;padding:8px 12px;font-size:12px}
   dialog.cookie-panel{max-height:calc(100% - 32px);overflow:auto}
   .cookie-panel-inner{padding:24px 20px}
   .cookie-cat{flex-direction:column;gap:6px}
@@ -322,11 +316,9 @@ body.notes-on .note{display:block}
             <a class="btn btn-primary" href="#contact">Discuss your project</a>
             <a class="btn btn-ghost" href="#services">View our services</a>
           </div>
-          <div class="note"><b>Hero:</b> título e subtítulo do teu documento. Sai o “Empowering Growth, Transforming Futures” e desaparece qualquer frase que sugira que a Acreo investe ou financia.</div>
         </div>
         <div>
           <svg class="truss-fig" id="truss" viewBox="0 0 600 460" role="img" aria-label="Line drawing of a truss bridge connecting London and Luxembourg"></svg>
-          <div class="note"><b>Visual próprio</b> em vez de banco de imagens: uma treliça (estrutura + ligação) entre Londres e Luxemburgo. Vetorial, leve e 100% da marca. Por trás, uma foto da City ao fim do dia (Unsplash, uso comercial livre) fica esbatida a ~15% para dar profundidade sem competir com a treliça.</div>
         </div>
       </div>
 
@@ -347,7 +339,6 @@ body.notes-on .note{display:block}
           <h3>Luxembourg Structuring Support</h3>
           <p>Coordinating the establishment of Luxembourg investment and corporate structures alongside appropriately authorised legal, tax and regulated service providers.</p>
           <a class="text-link" href="#luxembourg">Explore Luxembourg solutions</a>
-          <div class="note">Filete verde marca o serviço novo e leva à página autónoma.</div>
         </div>
       </div>
     </div>
@@ -362,7 +353,6 @@ body.notes-on .note{display:block}
             <img src="images/about-city-skyline.jpg" alt="City of London skyline in evening light, with the Walkie Talkie tower and the Thames" style="width:100%;height:100%;object-fit:cover" loading="lazy">
             <figcaption>City of London</figcaption>
           </figure>
-          <div class="note"><b>Imagem:</b> skyline da City (Unsplash, licença Unsplash: uso comercial gratuito, sem atribuição obrigatória). Ficheiro local em <code>images/about-city-skyline.jpg</code>, para alojar no próprio WordPress.</div>
         </div>
         <div class="about-copy">
           <p class="lead">Acreo Partners is an independent advisory firm supporting companies, investors, sponsors and family offices across strategic transactions, investment structuring, technology and corporate development.</p>
@@ -382,12 +372,10 @@ body.notes-on .note{display:block}
         <h2>Services</h2>
         <p>Organised by the mandates we take on, each delivered with the specialists it requires.</p>
       </div>
-      <div class="note"><b>Removidos:</b> Private Equity, Venture Capital e Tailor-Made Funding Solutions — todos sugerem investimento ou financiamento direto. Os 6 serviços passam a ser mandatos de advisory.</div>
       <figure class="banner-photo">
         <img src="images/services-thames-panorama.jpg" alt="Evening view across the Thames to the towers of the City of London" loading="lazy">
         <figcaption>The Thames, City of London — where many of our mandates begin</figcaption>
       </figure>
-      <div class="note"><b>Imagem:</b> vista do Tamisa e da City (Unsplash, uso comercial livre) a separar a intro da lista de 6 serviços — a secção tinha só texto corrido.</div>
       <div class="svc-list">
         <article class="svc">
           <h3>M&amp;A &amp; Strategic Advisory</h3>
@@ -438,7 +426,6 @@ body.notes-on .note{display:block}
         <div><h4>Partnership</h4><p>We work closely with clients and specialist advisers, aligning all parties around clear objectives.</p></div>
         <div><h4>Excellence</h4><p>We bring rigorous analysis, experienced judgement and hands-on execution to every engagement.</p></div>
       </div>
-      <div class="note">Ficam só os 4 valores. “Innovation” e “Sustainability” saem. Fundo com foto da Millennium Bridge ao pôr-do-sol (Unsplash) a ~12% de opacidade — dá atmosfera à secção sem tirar legibilidade ao texto.</div>
     </div>
   </section>
 
@@ -475,7 +462,6 @@ body.notes-on .note{display:block}
           </div>
         </article>
       </div>
-      <div class="note"><b>Fotos:</b> as duas com o mesmo tratamento (luz, fundo neutro, enquadramento). Hoje uma é .jpeg e outra .png com estilos diferentes — isso sozinho tira credibilidade. As três fotos já estão (as do Tiago e da Carla recortadas a 4:5 a partir do quadrado original). A do Carlos tem só 350×425 px, o que fica ligeiramente macio em ecrãs retina — se houver uma versão maior, vale a pena trocar. Com 3 pessoas, os cartões passaram a coluna vertical (foto em cima). A Carla não tem link de LinkedIn — falta enviarem o URL.</div>
 
       <div class="model">
         <h3>How each engagement is staffed</h3>
@@ -484,7 +470,6 @@ body.notes-on .note{display:block}
           <ul aria-label="Specialist disciplines">
             <li>Legal</li><li>Tax</li><li>Regulatory</li><li>Financial</li><li>Industry</li><li>Technology</li>
           </ul>
-          <div class="note">Dá peso a uma equipa pequena sem inventar pessoas: explica o modelo colaborativo que já está no teu texto do About.</div>
         </div>
       </div>
     </div>
@@ -503,7 +488,6 @@ body.notes-on .note{display:block}
             <li><span>Telephone</span><a href="tel:+351925329644">+351 925 329 644</a></li>
             <li><span>LinkedIn</span><a href="#">Acreo Partners</a></li>
           </ul>
-          <div class="note"><b>Bug no site atual:</b> o telefone mostra +351 925 329 644 mas o link é <code>tel:425-334-5956</code> — quem carrega no telemóvel liga para o número errado. Email aqui é placeholder.</div>
         </div>
         <form id="contact-form" novalidate>
           <div class="row">
@@ -534,7 +518,6 @@ body.notes-on .note{display:block}
           </label>
           <button class="btn btn-dark" type="submit">Send enquiry</button>
           <p class="form-status" role="status" aria-live="polite"></p>
-          <div class="note"><b>Anti-lixo:</b> consentimento RGPD + link para Privacy Notice; o campo “Type of enquiry” obrigatório e um honeypot invisível (+ Cloudflare Turnstile no site real) cortam a maioria do spam sem retirar o formulário.</div>
         </form>
       </div>
     </div>
@@ -552,7 +535,6 @@ body.notes-on .note{display:block}
         <a class="btn btn-primary" href="#contact-lux">Discuss your project</a>
         <a class="btn btn-ghost" href="#lux-process">See how it works</a>
       </div>
-      <div class="note">Fundo com o skyline da City ao entardecer (Unsplash) — mantém a ligação visual a Londres nesta página, já que o diagrama de coordenação abaixo é o elemento central.</div>
     </div>
   </section>
 
@@ -566,7 +548,6 @@ body.notes-on .note{display:block}
       <figure style="margin:0">
         <svg class="hub" id="hub" viewBox="0 0 640 500" role="img" aria-label="Diagram: Acreo Partners at the centre, coordinating legal, tax, AIFM, depositary, bank, audit, corporate services and central administration providers"></svg>
         <figcaption class="hub-cap">One point of contact across independent, authorised providers.</figcaption>
-        <div class="note" style="margin-left:auto;margin-right:auto">Diagrama próprio com enquadramento lógico (o papel de coordenador central). Deixa claro visualmente que os serviços regulados ficam do lado dos parceiros.</div>
       </figure>
     </div>
   </section>
@@ -605,7 +586,6 @@ body.notes-on .note{display:block}
         <img src="images/structures-tower-bridge.jpg" alt="Tower Bridge at sunset, with the Shard in the background" loading="lazy">
         <figcaption>Structure and connection — the throughline from the homepage truss diagram</figcaption>
       </figure>
-      <div class="note">Foto de Tower Bridge (Unsplash) a repetir, em foto, o mesmo conceito da treliça vetorial da home: estrutura + ligação.</div>
     </div>
     <div class="wrap structures">
       <div>
@@ -614,7 +594,6 @@ body.notes-on .note{display:block}
           <p>Depending on the client’s objectives and subject to advice from appropriately qualified Luxembourg legal and tax advisers, potential solutions may include the structures listed here.</p>
           <p>The choice of vehicle, and any regulatory authorisation it requires, is always determined with those advisers and the relevant authorised providers.</p>
         </div>
-        <div class="note"><b>Prudência:</b> linguagem condicional, sem prometer resultados, prazos ou custos. Acrescentei a 2.ª frase para reforçar que a Acreo não escolhe o veículo sozinha — confirma com o advogado no Luxemburgo.</div>
       </div>
       <ul class="struct-list">
         <li>Luxembourg sociétés anonymes<small>S.A.</small></li>
@@ -664,7 +643,6 @@ body.notes-on .note{display:block}
   </section>
   <section class="section">
     <div class="wrap legal">
-      <div class="note"><b>Rascunho para revisão da advogada.</b> Escrito com base no que o site faz hoje (só formulário de contacto, sem analytics). Os campos entre [parênteses rectos] são dados que só a Acreo/advogada sabem. Não substitui aconselhamento jurídico.</div>
 
       <h2>Who we are</h2>
       <p>This website is operated by Acreo Partners Ltd (“Acreo Partners”, “we”, “us”), a company registered in England and Wales, company no. 14432135, with its registered office at Birchin Court, 20 Birchin Lane, London, EC3V 9DJ. We are the controller of the personal data described in this notice.</p>
@@ -743,7 +721,6 @@ body.notes-on .note{display:block}
   </section>
   <section class="section">
     <div class="wrap legal">
-      <div class="note"><b>Rascunho para revisão da advogada.</b> Assume só cookies estritamente necessários (sem Google Analytics nem publicidade), o que em geral dispensa consentimento prévio. Confirmar quando o site final estiver montado: se o Cloudflare Turnstile, o tema WordPress ou qualquer plugin criarem cookies, têm de entrar na tabela. Os Google Fonts devem ser alojados localmente no site real (pedir ao Google Fonts transmite o IP do visitante).</div>
 
       <h2>What are cookies?</h2>
       <p>Cookies are small text files placed on your device when you visit a website. Similar technologies, such as local storage, work in a comparable way. This notice covers both and is provided in line with the Privacy and Electronic Communications Regulations (PECR) and UK GDPR.</p>
@@ -815,11 +792,8 @@ body.notes-on .note{display:block}
         <a href="#privacy">Privacy Notice</a><a href="#cookies">Cookie Notice</a><a href="#" data-cookie-settings>Cookie Settings</a><a href="#">LinkedIn</a>
       </nav>
     </div>
-    <div class="note" style="margin-top:20px"><b>Rodapé:</b> uma Ltd no UK tem de mostrar no site o número de empresa e a sede registada (preenche com os dados da Companies House). Sai o “Created with ❤ using WordPress and Kubio”.</div>
   </div>
 </footer>
-
-<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas de revisão</button>
 
 <script>
 const NS="http://www.w3.org/2000/svg";
@@ -923,9 +897,6 @@ document.getElementById('contact-form').addEventListener('submit',e=>{
   panel.querySelector('[data-cookie-close]').addEventListener('click',()=>{dismiss();panel.close()});
 })();
 
-/* Review notes toggle */
-const nt=document.querySelector('.notes-toggle');
-nt.addEventListener('click',()=>{const on=document.body.classList.toggle('notes-on');nt.setAttribute('aria-pressed',on);nt.textContent=on?'Esconder notas de revisão':'Mostrar notas de revisão'});
 </script>
 </body>
 </html>
